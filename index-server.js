@@ -74,21 +74,32 @@ const os = require('os');
 /** URL modules */
 const url = require('url');
 const myUrl = new URL('http://mywebsite.com/hello.html?id=100&status=active');
-// serialized URL
-console.log('serialized url: ', myUrl.href);
-console.log('serialized url tostring: ', myUrl.toString());
-// host (root domain)
-console.log('host: ', myUrl.host);
-// hostname (does not get port)
-console.log('hostname: ', myUrl.hostname);
-// pathname
-console.log('pathname: ', myUrl.pathname);
-// serialized query
-console.log('search query: ', myUrl.search);
-// params object
-console.log('search query params: ', myUrl.searchParams);
-// add param
-myUrl.searchParams.append('abc', '123');
-console.log('search params with appends: ', myUrl.searchParams);
-// loop through params
-myUrl.searchParams.forEach((value, name) => { console.log(`${name} : ${value}`) });
+// // serialized URL
+// console.log('serialized url: ', myUrl.href);
+// console.log('serialized url tostring: ', myUrl.toString());
+// // host (root domain)
+// console.log('host: ', myUrl.host);
+// // hostname (does not get port)
+// console.log('hostname: ', myUrl.hostname);
+// // pathname
+// console.log('pathname: ', myUrl.pathname);
+// // serialized query
+// console.log('search query: ', myUrl.search);
+// // params object
+// console.log('search query params: ', myUrl.searchParams);
+// // add param
+// myUrl.searchParams.append('abc', '123');
+// console.log('search params with appends: ', myUrl.searchParams);
+// // loop through params
+// myUrl.searchParams.forEach((value, name) => { console.log(`${name} : ${value}`) });
+
+/** events modules */
+const EventEmitter = require('events');
+// create class
+class MyEmitter extends EventEmitter {};
+// init object
+const myEmitter = new MyEmitter();
+// event listener
+myEmitter.on('event', () => console.log('Event fired ...'));
+// init event
+myEmitter.emit('event');
