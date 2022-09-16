@@ -13,7 +13,6 @@ const path = require('path');
 // console.log('concatenate path: ', path.join(__dirname, 'test', 'hello.html'));
 
 /** file system modules */
-
 const fs = require('fs');
 const name = 'new';
 // create a file
