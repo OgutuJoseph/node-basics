@@ -57,16 +57,38 @@ const name = 'new';
 /** operating system modules */
 const os = require('os');
 // platform
-console.log('OS platform: ', os.platform());
-// cpu architecture
-console.log('OS architecture: ', os.arch());
-// cpu core info
-console.log('CPU core info: ', os.cpus());
-// free memory
-console.log('Free memory: ', os.freemem());
-// total memory
-console.log('Total memory: ', os.totalmem());
-// home directory
-console.log('Home directory: ', os.homedir());
-// uptime
-console.log('OS uptime: ', os.uptime());
+// console.log('OS platform: ', os.platform());
+// // cpu architecture
+// console.log('OS architecture: ', os.arch());
+// // cpu core info
+// console.log('CPU core info: ', os.cpus());
+// // free memory
+// console.log('Free memory: ', os.freemem());
+// // total memory
+// console.log('Total memory: ', os.totalmem());
+// // home directory
+// console.log('Home directory: ', os.homedir());
+// // uptime
+// console.log('OS uptime: ', os.uptime());
+
+/** URL modules */
+const url = require('url');
+const myUrl = new URL('http://mywebsite.com/hello.html?id=100&status=active');
+// serialized URL
+console.log('serialized url: ', myUrl.href);
+console.log('serialized url tostring: ', myUrl.toString());
+// host (root domain)
+console.log('host: ', myUrl.host);
+// hostname (does not get port)
+console.log('hostname: ', myUrl.hostname);
+// pathname
+console.log('pathname: ', myUrl.pathname);
+// serialized query
+console.log('search query: ', myUrl.search);
+// params object
+console.log('search query params: ', myUrl.searchParams);
+// add param
+myUrl.searchParams.append('abc', '123');
+console.log('search params with appends: ', myUrl.searchParams);
+// loop through params
+myUrl.searchParams.forEach((value, name) => { console.log(`${name} : ${value}`) });
