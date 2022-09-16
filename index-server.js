@@ -1,3 +1,6 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 /** path modules */
 const path = require('path');
 // // base file name
@@ -95,11 +98,23 @@ const myUrl = new URL('http://mywebsite.com/hello.html?id=100&status=active');
 
 /** events modules */
 const EventEmitter = require('events');
-// create class
-class MyEmitter extends EventEmitter {};
-// init object
-const myEmitter = new MyEmitter();
-// event listener
-myEmitter.on('event', () => console.log('Event fired ...'));
-// init event
-myEmitter.emit('event');
+const port = process.env.PORT;
+// // create class
+// class MyEmitter extends EventEmitter {};
+// // init object
+// const myEmitter = new MyEmitter();
+// // event listener
+// myEmitter.on('event', () => console.log('Event fired ...'));
+// // init event
+// myEmitter.emit('event');
+
+/** http modules */
+const http = require('http');
+// create server object
+http
+    .createServer((req, res) => {
+        // write response
+        res.write('Hi there!');
+        res.end();
+    })
+    .listen(`${port}`, () => console.log(`Server running on ${port}`))
