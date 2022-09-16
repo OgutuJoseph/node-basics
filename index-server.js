@@ -15,41 +15,58 @@ const path = require('path');
 /** file system modules */
 const fs = require('fs');
 const name = 'new';
-// create a file
-fs.mkdir(path.join(__dirname, `/${name}`), {}, (err) => {
-    if (err) throw err;
-    console.log('folder created ...');
-});
-// create and write to a file
-fs.writeFile(
-    // path.join(__dirname, `/${name}`, `hello.txt`), 'Hello World!', (err) => {
-        path.join(__dirname, `/${name}`, `hello.txt`), 
-        'Hello World!', 
-        (err) => {
-            if (err) throw err;
-            console.log('file created and written ...');
-    }
-);
-// append to file
-fs.appendFile(
-    path.join(__dirname, `/${name}`, 'hello.txt'),
-    'I love Node.js',
-    (err) => {
-        if (err) throw err;
-        console.log('file written ...');
-    }
-);
-// read file
-fs.readFile(path.join(__dirname, `/${name}`, 'hello.txt'), 'utf8', (err, data) => {
-    if (err) throw err;
-    console.log('file data: ', data);
-});
-// rename a file
-fs.rename(
-    path.join(__dirname, `/${name}`, 'hello.txt'),
-    path.join(__dirname, `/${name}`, 'hello-renamed.txt'),
-    (err) => {
-        if (err) throw err;
-        console.log('file renamed ...');
-    }
-)
+// // create a file
+// fs.mkdir(path.join(__dirname, `/${name}`), {}, (err) => {
+//     if (err) throw err;
+//     console.log('folder created ...');
+// });
+// // create and write to a file
+// fs.writeFile(
+//     // path.join(__dirname, `/${name}`, `hello.txt`), 'Hello World!', (err) => {
+//         path.join(__dirname, `/${name}`, `hello.txt`), 
+//         'Hello World!', 
+//         (err) => {
+//             if (err) throw err;
+//             console.log('file created and written ...');
+//     }
+// );
+// // append to file
+// fs.appendFile(
+//     path.join(__dirname, `/${name}`, 'hello.txt'),
+//     'I love Node.js',
+//     (err) => {
+//         if (err) throw err;
+//         console.log('file written ...');
+//     }
+// );
+// // read file
+// fs.readFile(path.join(__dirname, `/${name}`, 'hello.txt'), 'utf8', (err, data) => {
+//     if (err) throw err;
+//     console.log('file data: ', data);
+// });
+// // rename a file
+// fs.rename(
+//     path.join(__dirname, `/${name}`, 'hello.txt'),
+//     path.join(__dirname, `/${name}`, 'hello-renamed.txt'),
+//     (err) => {
+//         if (err) throw err;
+//         console.log('file renamed ...');
+//     }
+// );
+
+/** operating system modules */
+const os = require('os');
+// platform
+console.log('OS platform: ', os.platform());
+// cpu architecture
+console.log('OS architecture: ', os.arch());
+// cpu core info
+console.log('CPU core info: ', os.cpus());
+// free memory
+console.log('Free memory: ', os.freemem());
+// total memory
+console.log('Total memory: ', os.totalmem());
+// home directory
+console.log('Home directory: ', os.homedir());
+// uptime
+console.log('OS uptime: ', os.uptime());
